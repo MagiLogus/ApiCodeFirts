@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebCodeFirst.Intefaces;
+using WebCodeFirst.Repositories;
 using WebCodeFirst.ViewModels;
 
 namespace WebCodeFirst.Controllers
@@ -10,11 +11,11 @@ namespace WebCodeFirst.Controllers
     [Produces("application/json")]
     public class LoginController : ControllerBase
     {
-        private readonly IUsuarioRepository _usuarioRepository();
+        private readonly IUsuarioRepository _usuarioRepository;
 
         public LoginController()
         {
-            _usuarioRepository = new IUsuarioRepository();
+            _usuarioRepository = new UsuarioRepository();
         }
 
         [HttpPost]
